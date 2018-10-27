@@ -7,19 +7,21 @@
              xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
              Background="{DynamicResource {x:Static vsshell:VsBrushes.WindowKey}}"
              Foreground="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}"
-             mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="300"
+             mc:Ignorable="d" d:DesignWidth="300"
              Name="MyToolWindow">
-    <Grid>
-        <StackPanel Orientation="Vertical">
-            <TextBlock Margin="10" HorizontalAlignment="Center">EventLogWindow</TextBlock>
-            <TreeView ItemsSource="{Binding EventLogFolders}">
+    <Grid Margin="0,10,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="149*"/>
+            <ColumnDefinition Width="151*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2" RenderTransformOrigin="0.505,0.492" Margin="0,0,0,309">
+            <TextBlock Margin="76,10,92,10" HorizontalAlignment="Center" RenderTransformOrigin="0.491,-0.207" Height="23" Width="132">EventLogWindow</TextBlock>
+            <TreeView ItemsSource="{Binding EventLogFolders}" Height="242" RenderTransformOrigin="0.496,0.439">
 
                 <!-- Event log template-->
                 <TreeView.ItemTemplate>
                     <HierarchicalDataTemplate ItemsSource="{Binding EventLogs}">
                         <TextBlock Text="{Binding FolderName}" />
-
                         <!-- Event Template -->
                         <HierarchicalDataTemplate.ItemTemplate>
                             <HierarchicalDataTemplate ItemsSource="{Binding Events}">
@@ -27,16 +29,23 @@
                                 <!-- Log Template -->
                                 <HierarchicalDataTemplate.ItemTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding EventSource}" />
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Level}" />
+                                            <TextBlock Text="{Binding DateAndTime}" />
+                                            <TextBlock Text="{Binding EventSource}" />
+                                        </StackPanel>
                                     </DataTemplate>
                                 </HierarchicalDataTemplate.ItemTemplate>
                             </HierarchicalDataTemplate>
-
                         </HierarchicalDataTemplate.ItemTemplate>
-
                     </HierarchicalDataTemplate>
                 </TreeView.ItemTemplate>
             </TreeView>
         </StackPanel>
+        <ScrollViewer HorizontalAlignment="Left" Margin="0,298,0,7" Width="290" RenderTransformOrigin="0.498,0.765" Grid.ColumnSpan="2">
+            <TextBlock Width="266" Height="286" RenderTransformOrigin="0.486,1.05">
+                Testy test test
+            </TextBlock>
+        </ScrollViewer>
     </Grid>
 </UserControl>
