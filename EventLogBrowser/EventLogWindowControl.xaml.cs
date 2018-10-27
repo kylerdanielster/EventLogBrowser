@@ -1,6 +1,9 @@
 ﻿namespace EventLogBrowser
 {
+    using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
 
@@ -15,6 +18,94 @@
         public EventLogWindowControl()
         {
             this.InitializeComponent();
+
+            var systemLogs = new EventLog()
+            {
+                LogName = "System",
+                Events = new List<Event>()
+                {
+                    new Event
+                    {
+                        Level = "Error1",
+                        DateAndTime = DateTime.Now,
+                        EventSource = "Application1",
+                        Message = "Error Message"
+                    },
+                    new Event
+                    {
+                        Level = "Error2",
+                        DateAndTime = DateTime.Now,
+                        EventSource = "Application2",
+                        Message = "Error Message"
+                    }
+                }
+            };
+
+            var applicationLogs = new EventLog()
+            {
+                LogName = "Application",
+                Events = new List<Event>()
+                {
+                    new Event 
+                    {
+                        Level = "Error3",
+                        DateAndTime = DateTime.Now,
+                        EventSource = "Application3",
+                        Message = "Error Message"
+                    },
+                    new Event
+                    {
+                        Level = "Error4",
+                        DateAndTime = DateTime.Now,
+                        EventSource = "Application4",
+                        Message = "Error Message"
+                    }
+                }
+            };
+
+            var hardwareEventLogs = new EventLog()
+            {
+                LogName = "Hardware",
+                Events = new List<Event>()
+                {
+                    new Event
+                    {
+                        Level = "Error5",
+                        DateAndTime = DateTime.Now,
+                        EventSource = "Application5",
+                        Message = "Error Message"
+                    },
+                    new Event
+                    {
+                        Level = "Error6",
+                        DateAndTime = DateTime.Now,
+                        EventSource = "Application5",
+                        Message = "Error Message"
+                    }
+                }
+            };
+
+            var eventLogs = new List<EventLog> { systemLogs, applicationLogs };
+            var appAndSvcLogs = new List<EventLog> { hardwareEventLogs };
+
+            var windowsLogsFolder = new EventLogFolder()
+            {
+                FolderName = "Windows Logs",
+                EventLogs = eventLogs
+            };
+
+            var appAndSvcLogsFolder = new EventLogFolder()
+            {
+                FolderName = "Apps and Svcs Logs",
+                EventLogs = appAndSvcLogs
+            };
+
+            var folders = new List<EventLogFolder> { windowsLogsFolder, appAndSvcLogsFolder };
+
+            this.DataContext = new
+            {
+                EventLogFolders = folders
+            };
         }
 
         /// <summary>

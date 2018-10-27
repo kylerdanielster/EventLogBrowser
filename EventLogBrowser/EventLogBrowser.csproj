@@ -54,6 +54,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Event.cs" />
+    <Compile Include="EventLog.cs" />
+    <Compile Include="EventLogFolder.cs" />
+    <Compile Include="EventLogService.cs" />
     <Compile Include="EventLogWindow.cs" />
     <Compile Include="EventLogWindowCommand.cs" />
     <Compile Include="EventLogWindowControl.xaml.cs">
