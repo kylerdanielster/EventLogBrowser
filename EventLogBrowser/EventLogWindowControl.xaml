@@ -15,8 +15,8 @@
             <ColumnDefinition Width="151*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical" Grid.ColumnSpan="2" RenderTransformOrigin="0.505,0.492" Margin="0,0,0,309">
-            <TextBlock Margin="76,10,92,10" HorizontalAlignment="Center" RenderTransformOrigin="0.491,-0.207" Height="23" Width="132">EventLogWindow</TextBlock>
-            <TreeView ItemsSource="{Binding EventLogFolders}" Height="242" RenderTransformOrigin="0.496,0.439">
+            <TextBlock Margin="5" HorizontalAlignment="Center" Height="23" Width="140">EventLogWindow</TextBlock>
+            <TreeView ItemsSource="{Binding EventLogFolders}" Height="242" RenderTransformOrigin="0.496,0.439" Margin="10,0,0,0">
 
                 <!-- Event log template-->
                 <TreeView.ItemTemplate>
@@ -43,7 +43,7 @@
             </TreeView>
         </StackPanel>
         <ScrollViewer HorizontalAlignment="Left" Margin="0,298,0,7" Width="290" RenderTransformOrigin="0.498,0.765" Grid.ColumnSpan="2">
-            <TextBlock Width="266" Height="286" RenderTransformOrigin="0.486,1.05">
+            <TextBlock Width="260" RenderTransformOrigin="0.486,1.05">
                 Testy test test
             </TextBlock>
         </ScrollViewer>
