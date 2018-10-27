@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Windows;
@@ -29,14 +30,14 @@
                         Level = "Error1",
                         DateAndTime = DateTime.Now,
                         EventSource = "Application1",
-                        Message = "Error Message"
+                        Message = "Error Message1"
                     },
                     new Event
                     {
                         Level = "Error2",
                         DateAndTime = DateTime.Now,
                         EventSource = "Application2",
-                        Message = "Error Message"
+                        Message = "Error Message2"
                     }
                 }
             };
@@ -51,14 +52,14 @@
                         Level = "Error3",
                         DateAndTime = DateTime.Now,
                         EventSource = "Application3",
-                        Message = "Error Message"
+                        Message = "Error Message3"
                     },
                     new Event
                     {
                         Level = "Error4",
                         DateAndTime = DateTime.Now,
                         EventSource = "Application4",
-                        Message = "Error Message"
+                        Message = "Error Message4"
                     }
                 }
             };
@@ -73,14 +74,14 @@
                         Level = "Error5",
                         DateAndTime = DateTime.Now,
                         EventSource = "Application5",
-                        Message = "Error Message"
+                        Message = "Error Message5"
                     },
                     new Event
                     {
                         Level = "Error6",
                         DateAndTime = DateTime.Now,
                         EventSource = "Application5",
-                        Message = "Error Message"
+                        Message = "Error Message6"
                     }
                 }
             };
@@ -106,6 +107,14 @@
             {
                 EventLogFolders = folders
             };
+        }
+
+        private void StackPanel_MouseDown(object sender, RoutedEventArgs e)
+        {
+            var errorMessage = ((StackPanel)sender).Tag.ToString();
+            
+            ErrorMessageText.Text = errorMessage;
+            Debug.WriteLine("Stack Panel Click!" + errorMessage);
         }
 
         /// <summary>
