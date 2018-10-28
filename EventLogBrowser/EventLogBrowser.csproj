@@ -55,7 +55,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Event.cs" />
-    <Compile Include="EventLog.cs" />
+    <Compile Include="EventLogs.cs" />
     <Compile Include="EventLogFolder.cs" />
     <Compile Include="EventLogService.cs" />
     <Compile Include="EventLogWindow.cs" />

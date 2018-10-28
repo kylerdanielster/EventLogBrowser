@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EventLogBrowser
 {
-    public class EventLog
+    public class EventLogs
     {
         public string LogName { get; set; }
 

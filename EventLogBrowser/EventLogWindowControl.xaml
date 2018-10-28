@@ -12,7 +12,6 @@
         <Style TargetType="{x:Type TreeView}">
             <Setter Property="Margin" Value="10,0,0,0" />
             <Setter Property="Height" Value="242" />
-            <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}"/>-->
             <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"/>
             <Setter Property="Foreground" Value="White"/>
         </Style>
