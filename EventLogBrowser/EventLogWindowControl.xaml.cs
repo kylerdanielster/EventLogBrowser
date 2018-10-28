@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
 
@@ -23,15 +22,13 @@
         {
             this.InitializeComponent();
 
-            eventLogService = new EventLogService();
+            this.eventLogService = new EventLogService();
 
-            eventLogs = eventLogService.GetEventLogs();
-
-            var folders = GetEventLogFolders();
+            this.eventLogs = eventLogService.GetEventLogs();
 
             this.DataContext = new
             {
-                EventLogFolders = folders
+                EventLogs = this.eventLogs
             };
         }
 
@@ -57,6 +54,7 @@
                 "EventLogWindow");
         }
 
+        // TODO: Delete this, leaving for debugging reasons
         private List<EventLogFolder> GetEventLogFolders()
         {
             var systemLogs = new EventLogs()
