@@ -39,7 +39,7 @@ namespace EventLogBrowser
 
             var logs = entriesArray.OrderByDescending(e => e.TimeGenerated).Take(20).ToList();
 
-            for(var i = 0; i < logs.Count; i++)// EventLogEntry entry in logs)
+            for(var i = 0; i < logs.Count; i++)
             {
                 events.Add(new Event
                 {

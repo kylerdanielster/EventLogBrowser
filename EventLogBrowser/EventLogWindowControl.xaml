@@ -52,7 +52,7 @@
             </TreeView>
         </StackPanel>
         <ScrollViewer HorizontalAlignment="Left" Margin="0,298,0,7" Width="290" RenderTransformOrigin="0.498,0.765" Grid.ColumnSpan="2">
-            <TextBlock Name="ErrorMessageText" Width="256" RenderTransformOrigin="0.486,1.05">
+            <TextBlock Name="EventMessageText" Width="256" RenderTransformOrigin="0.486,1.05">
                 Testy test test
             </TextBlock>
         </ScrollViewer>

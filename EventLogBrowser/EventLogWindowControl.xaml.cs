@@ -14,6 +14,7 @@
     public partial class EventLogWindowControl : UserControl
     {
         private EventLogService eventLogService;
+        private List<EventLogs> eventLogs;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EventLogWindowControl"/> class.
@@ -23,7 +24,8 @@
             this.InitializeComponent();
 
             eventLogService = new EventLogService();
-            eventLogService.GetEventLogs();
+
+            eventLogs = eventLogService.GetEventLogs();
 
             var folders = GetEventLogFolders();
 
@@ -35,10 +37,10 @@
 
         private void StackPanel_MouseDown(object sender, RoutedEventArgs e)
         {
-            var errorMessage = ((StackPanel)sender).Tag.ToString();
-            
-            ErrorMessageText.Text = errorMessage;
-            Debug.WriteLine("Stack Panel Click!" + errorMessage);
+            var eventMessage = ((StackPanel)sender).Tag.ToString();
+
+            EventMessageText.Text = eventMessage;
+            Debug.WriteLine("Stack Panel Click!" + eventMessage);
         }
 
         /// <summary>
