@@ -37,7 +37,6 @@
             var eventMessage = ((StackPanel)sender).Tag.ToString();
 
             EventMessageText.Text = eventMessage;
-            Debug.WriteLine("Stack Panel Click!" + eventMessage);
         }
 
         /// <summary>
