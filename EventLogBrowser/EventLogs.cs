@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace EventLogBrowser
 {
@@ -6,6 +7,6 @@ namespace EventLogBrowser
     {
         public string LogName { get; set; }
 
-        public List<Event> Events { get; set; }
+        public ObservableCollection<Event> Events { get; set; }
     }
 }

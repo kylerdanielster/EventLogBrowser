@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,6 +12,7 @@ namespace EventLogBrowser
     public partial class EventLogWindowControl : UserControl
     {
         private EventLogService eventLogService;
+        private ObservableCollection<EventLogs> eventLogs;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EventLogWindowControl"/> class.
@@ -20,7 +23,7 @@ namespace EventLogBrowser
 
             this.eventLogService = new EventLogService();
 
-            var eventLogs = eventLogService.GetEventLogs();
+            this.eventLogs = eventLogService.GetEventLogs();
 
             this.DataContext = new
             {
@@ -28,20 +31,34 @@ namespace EventLogBrowser
             };
         }
 
-        private void StackPanel_MouseDown(object sender, RoutedEventArgs e)
+        private void Event_Entry_MouseDown(object sender, RoutedEventArgs e)
         {
             var eventMessage = ((StackPanel)sender).Tag.ToString();
 
             EventMessageText.Text = eventMessage;
         }
 
-        private void Refresh_Logs_Click(object sender, RoutedEventArgs e)
+        private void Refresh_Logs_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Refresh Logs");
-            this.DataContext = new
+            var newLogs = eventLogService.GetEventLogs();
+
+            foreach (var log in newLogs)
             {
-                EventLogs = eventLogService.GetEventLogs()
-            };
+                var recentEvents = log.Events; // up to date events, will contain new events if any
+
+                var logName = log.LogName; // current logs name
+                
+                var existingEvents = eventLogs.Where(l => l.LogName == logName).First().Events; // current logs events
+
+                // the new events are the recent events that are not in the existing events
+                var newEvents = recentEvents.Where(r => r.DateAndTime > existingEvents.First().DateAndTime).OrderBy(n => n.DateAndTime);
+
+                // add each new event to the begining of the eventLogs
+                foreach(var newEvent in newEvents)
+                {
+                    eventLogs.Where(l => l.LogName == logName).First().Events.Insert(0, newEvent);
+                }
+            }
         }
     }
 }

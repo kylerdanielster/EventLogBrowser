@@ -21,18 +21,18 @@
     </UserControl.Resources>
     <StackPanel Orientation="Vertical" Margin="0,0,0,0">
         <Grid Margin="5">
-            <Button Click="Refresh_Logs_Click" HorizontalAlignment="Right" Content="Refresh"/>
-            <TextBlock Margin="5" HorizontalAlignment="Center" Height="25" Width="Auto"><Run Text="EventLogWindow"/></TextBlock>
+            <Button Click="Refresh_Logs_Btn_Click" HorizontalAlignment="Right" Content="Refresh"/>
+            <TextBlock Margin="5" HorizontalAlignment="Center" Height="25" Width="Auto"><Run Text="Windows Event Logs"/></TextBlock>
         </Grid>
         <TreeView ItemsSource="{Binding EventLogs}" Height="300">
             <!-- Event log template-->
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Events}">
                     <TextBlock Text="{Binding LogName}" />
-                    <!-- Log Template -->
+                    <!-- Event Template -->
                     <HierarchicalDataTemplate.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Tag="{Binding Message}" Margin="5" MouseDown="StackPanel_MouseDown">
+                            <StackPanel Tag="{Binding Message}" Margin="5" MouseDown="Event_Entry_MouseDown">
                                 <TextBlock Text="{Binding Level}" />
                                 <TextBlock Text="{Binding DateAndTime}" />
                                 <TextBlock Text="{Binding EventSource}" />

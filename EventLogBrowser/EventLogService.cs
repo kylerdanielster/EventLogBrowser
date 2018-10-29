@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 
@@ -7,9 +8,9 @@ namespace EventLogBrowser
 {
     public class EventLogService
     {
-        public List<EventLogs> GetEventLogs()
+        public ObservableCollection<EventLogs> GetEventLogs()
         {
-            var eventLogs = new List<EventLogs>();
+            var eventLogs = new ObservableCollection<EventLogs>();
             EventLog[] logs = EventLog.GetEventLogs(Environment.MachineName);
             foreach (var log in logs)
             {
@@ -30,9 +31,9 @@ namespace EventLogBrowser
             return eventLogs;
         }
 
-        private List<Event> GetEvents(EventLogEntryCollection entries)
+        private ObservableCollection<Event> GetEvents(EventLogEntryCollection entries)
         {
-            var events = new List<Event>();
+            var events = new ObservableCollection<Event>();
             EventLogEntry[] entriesArray = new EventLogEntry[entries.Count];
 
             entries.CopyTo(entriesArray, 0);
