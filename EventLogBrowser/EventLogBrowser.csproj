@@ -76,10 +76,8 @@
     <VSCTCompile Include="EventLogWindowPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
-    <Content Include="index.html" />
     <Content Include="Resources\EventLogWindowCommand.png" />
     <Content Include="Resources\EventLogWindowPackage.ico" />
-    <Content Include="stylesheet.css" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
