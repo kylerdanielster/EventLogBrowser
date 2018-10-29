@@ -2,8 +2,8 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
     <Identity Id="EventLogBrowser.24c0887d-5d47-4572-8198-576ccd575256" Version="1.0" Language="en-US" Publisher="Kyle Daniel" />
-    <DisplayName>EventLogBrowser</DisplayName>
-    <Description>Empty VSIX Project.</Description>
+    <DisplayName>Windows Event Log Browser</DisplayName>
+    <Description>Adds a Windows Event Log Browser window to Visual Studio.</Description>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 16.0)" />

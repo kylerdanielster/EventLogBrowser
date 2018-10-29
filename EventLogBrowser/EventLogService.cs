@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -24,7 +23,7 @@ namespace EventLogBrowser
                 }
                 catch(Exception e)
                 {
-                    //Debug.WriteLine("Exception:{0}", e.Message);
+                    Debug.WriteLine("Exception:{0}", e.Message);
                 }
             }
 
