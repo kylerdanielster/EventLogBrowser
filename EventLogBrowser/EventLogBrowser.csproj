@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="EventLogWindowPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />
