@@ -46,7 +46,7 @@ namespace EventLogBrowser
                     EventSource = logs[i].Source,
                     DateAndTime = logs[i].TimeGenerated,
                     Level = logs[i].EntryType.ToString(),
-                    Message = logs[i].Message
+                    Message = logs[i].Message.ToString()
                 });
             }
 
