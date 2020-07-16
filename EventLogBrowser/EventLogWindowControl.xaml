@@ -18,6 +18,10 @@
         <Style TargetType="{x:Type TreeViewItem}">
             <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}"/>
         </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowTextKey}}"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static vsshell:VsBrushes.ToolWindowBackgroundKey}}"/>
+        </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -49,7 +53,7 @@
             </TreeView>
         </StackPanel>
         <ScrollViewer Grid.Row="1" Height="Auto" HorizontalAlignment="Left" Margin="0,10,0,0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <TextBlock x:Name="EventMessageText" Margin="10" TextWrapping="Wrap" />
+            <TextBox x:Name="EventMessageText" Margin="10" IsReadOnly="True" TextWrapping="Wrap" />
         </ScrollViewer>
     </Grid>
 </UserControl>
